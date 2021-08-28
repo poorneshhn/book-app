@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{title}}</title>
+</head>
+<body>
+    {{>header}}
+    <p>This is the home page of the Book App</p>
+
+    <form id="input-form" action="/books/newbook" method="POST"> 
+        <label for="bookname">name</label>
+        <input type="text" id="bookname" name="bookname" autocomplete="off">
+        <button type="submit" onclick="Hello()">Save book details</button>
+    </form>
+</body>
+<script src="/js/app.js"></script>
+</html>
