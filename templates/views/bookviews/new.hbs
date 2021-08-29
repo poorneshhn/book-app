@@ -8,7 +8,15 @@
 </head>
 <body>
     {{>header}}
-    <h2>view books here</h2>
-    
+
+    <h2>Add Book here</h2>
+
+    <form action="/books" class="booksform" method="POST">
+
+        {{>bookForm}}
+
+        <a href="/">Cancel</a>
+        <button type="submit">Create</button>
+    </form>
 </body>
 </html>
