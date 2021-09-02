@@ -15,7 +15,8 @@ authorRouter.get("/", async (req, res) => {
         
         res.status(200).render("authorviews/index", {
         title: "Authors Book-App",
-        authors: allAuthors.map(author => author.name)
+        authors: allAuthors.map(author => author.name),
+        searchOption: req.query.name
     }) 
     } catch (error) {
         res.send(error);

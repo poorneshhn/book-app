@@ -22,12 +22,10 @@ const bookSchema = new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        required: true,
         default: Date.now
     },
-    coverImageName: {
-        type: String,
-        required: true
+    coverImage: {
+        type: Buffer,
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
@@ -35,6 +33,15 @@ const bookSchema = new mongoose.Schema({
         ref: "Author"
     }    
 })
+
+bookSchema.methods.toJSON = function() {
+    const book = this
+    const bookObject = book.toObject();
+
+    delete bookObject.coverImage;
+
+    return bookObject;
+}
 
 const Book = mongoose.model("Book", bookSchema);
 

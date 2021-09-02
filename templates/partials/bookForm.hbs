@@ -9,19 +9,15 @@
         {{#each authors as |value key|}}
         <option label="{{value.name}}" value="{{value._id}}"></option>
         {{/each}}
-</select>
-</div>
-<div>
-    <label for="createdDate">Created Date</label>
-    <input type="date" id="createdDate" class="date" name="createdDate">
+    </select>
 </div>
 <div>
     <label for="pageCount">Page Count</label>
-    <input type="number" id="pageCount" name="pageCount">
+    <input type="number" id="pageCount" name="pageCount" min="1">
 </div>
 <div>
     <label for="coverImageTitle">Cover Image</label>
-    <input type="text" id="coverImageTitle" name="coverImageTitle">
+    <input type="file" id="coverImageTitle" name="cover">
 </div>
 
 <div>
@@ -30,5 +26,5 @@
 </div>
 <div>
     <label for="description">Description</label>
-    <input type="text" id="description" name="description">
+    <textarea type="text" id="description" name="description" ></textarea>
 </div>

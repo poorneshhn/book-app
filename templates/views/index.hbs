@@ -7,13 +7,17 @@
 </head>
 <body>
     {{>header}}
-    <p>This is the home page of the Book App</p>
+    <h1>Welcome to Book App! :)</h1><br>
+    <h2>Recently added books</h2>
 
-    <form id="input-form" action="/books/newbook" method="POST"> 
-        <label for="bookname">name</label>
-        <input type="text" id="bookname" name="bookname" autocomplete="off">
-        <button type="submit" onclick="Hello()">Save book details</button>
-    </form>
+    {{#each books as |value key|}}
+        <span>
+            <img src="http://localhost:3000/books/images/{{value._id}}" height="150" width="150" alt="book cover">
+            <h3>{{value.title}}</h3>
+        </span>
+    {{/each}}
+
+    
 </body>
 <script src="/js/app.js"></script>
 </html>
