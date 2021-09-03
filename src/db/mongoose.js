@@ -3,7 +3,7 @@ const db = mongoose.connection;
 
 // mongodb+srv://poorneshhn:Welcome%40@cluster0.dhwgc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
-mongoose.connect("mongodb+srv://poorneshhn:Welcome%40@cluster0.dhwgc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true
 })
 
