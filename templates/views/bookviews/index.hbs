@@ -20,7 +20,7 @@
         {{#if books}}
             {{#each books as |value key|}}
                 <span id="book-records">
-                    <img src="http://localhost:3000/books/images/{{value._id}}" height="150" width="150" alt="book cover">
+                    <img src="/books/images/{{value._id}}" height="150" width="150" alt="book cover">
                     <h3>{{value.title}}</h3>
                 </span>
             {{/each}}

@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const db = mongoose.connection;
 
-mongoose.connect("mongodb://127.0.0.1:27017/book-app", {
+// mongodb+srv://poorneshhn:Welcome%40@cluster0.dhwgc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+mongoose.connect("mongodb+srv://poorneshhn:Welcome%40@cluster0.dhwgc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
     useNewUrlParser: true
 })
 
