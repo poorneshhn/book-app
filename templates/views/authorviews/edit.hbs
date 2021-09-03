@@ -8,13 +8,12 @@
 </head>
 <body>
     {{>header}}
-    <h2>create new Author here</h2>
-    {{>errormessage}}
-    <form action="/authors/new" method="POST">
+    <h2>Edit Author</h2>
+    <form action="/authors/{{author._id}}?_method=PATCH" method="POST">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" value="{{author.name}}" required>
         <a href="/authors">Cancel</a>
-        <button type="submit">create</button>
+        <button type="submit">Update</button>
     </form>
 </body>
 </html>

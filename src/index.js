@@ -4,6 +4,7 @@ const path = require("path");
 const authorRouter = require("./routers/authorRouter");
 const bookRouter = require("./routers/bookRouter");
 const book = require("./models/books");
+const methodOverride = require("method-override");
 
 
 require("./db/mongoose");
@@ -17,7 +18,8 @@ const partialsPath = path.join(__dirname, "../templates/partials");
 const app = express();
 app.use(express.static(publicPath));
 app.use(express.json());
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 
 const port = process.env.PORT || 3000;
 

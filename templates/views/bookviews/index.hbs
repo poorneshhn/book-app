@@ -14,12 +14,12 @@
     {{>_formSearchBook}}
     <button type="submit">Search</button> 
     <button id="clear-search">Clear filer</button>
-    </form>
+    </form><br>
 
     <div id="all-books">
         {{#if books}}
             {{#each books as |value key|}}
-                <span>
+                <span id="book-records">
                     <img src="http://localhost:3000/books/images/{{value._id}}" height="150" width="150" alt="book cover">
                     <h3>{{value.title}}</h3>
                 </span>

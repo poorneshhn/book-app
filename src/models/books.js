@@ -25,7 +25,7 @@ const bookSchema = new mongoose.Schema({
         default: Date.now
     },
     coverImage: {
-        type: Buffer,
+        type: Buffer
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,

@@ -2,6 +2,7 @@ const express = require("express");
 const Book = require("../models/books");
 const Author = require("../models/authors");
 const multer = require("multer");
+const imageVariable = require("../../public/variable");
 
 const bookRouter = new express.Router();
 
@@ -52,10 +53,10 @@ bookRouter.get("/images/:id", async (req, res) => {
 const upload = multer({
     limits: {
         fileSize: 1000000
-    }, 
+    },
     fileFilter(req, file, cb) {
         if(!file.originalname.toLowerCase().match(/\.(png|img|jpg|jpeg)$/)) {
-            return cb(new Error("Please upload an Image file"));
+            return cb(new Error("Please upload an Image file"), false);
         }
         cb(undefined, true);
     }
@@ -67,20 +68,24 @@ const upload = multer({
 bookRouter.post("/", upload.single("cover"), async (req, res) => {
     try {
         let value = req.body;
-        console.log(value);
     
     const book = await new Book({
         title: value.title,
         description: value.description,
         publishDate: value.publishDate,
         pageCount: value.pageCount,
-        coverImage: req.file.buffer,
         author: value.author 
     })
 
+    if(req.file !== undefined) {
+        book.coverImage = req.file.buffer;
+    }else {
+        book.coverImage = Buffer.from(imageVariable, "base64");
+    }
+
     await book.save();
 
-    res.status(200).redirect("/books");
+    res.redirect("/books");
 
     } catch (error) {
         res.status(500).send(error);    

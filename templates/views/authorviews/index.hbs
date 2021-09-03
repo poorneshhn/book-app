@@ -7,8 +7,13 @@
     <title>{{title}}</title>
 </head>
 <body>
+
     {{>header}}
+
     <h1>All Authors</h1>
+
+    <a href="/authors/new">Add new Author</a><br><br>
+
     <form action="/authors" method="GET">
         {{>_formSearchAuthor}}
         <button type="submit">Search</button>
@@ -16,7 +21,13 @@
 
     <div id="all-authors">
         {{#each authors as |value key|}}
-            <div>{{value}}</div>
+            <div>{{value.name}}</div>
+            <a href="/authors/{{value._id}}">View</a>
+            <a href="/authors/{{value._id}}/edit">Edit</a>
+
+            <form action="/authors/{{value._id}}?_method=DELETE" method="post">
+                <button id="form-delete" type="submit">Delete</button>
+            </form>
         {{/each}}
     </div>
 
