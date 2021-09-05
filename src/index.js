@@ -6,7 +6,6 @@ const bookRouter = require("./routers/bookRouter");
 const book = require("./models/books");
 const methodOverride = require("method-override");
 
-require("dotenv").config();
 require("./db/mongoose");
 
 // path set up

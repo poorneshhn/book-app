@@ -7,12 +7,20 @@
 </head>
 <body>
     {{>header}}
-    <h1>Welcome to Book App! :)</h1><br>
+    <h1>Welcome to Book App! :)</h1>
+    <p>Read this to understand the usage of this application.
+        Navigate to Add Author page using the above link. Create an Author of your choice just by entering the name of the author.
+        Navigate to the Add book page to add any book you like. Dont forget to select author from the list of authors that you created earlier.
+        Note that Books and Authors that you create can be Modified/deleted by anyone.
+    </p><br>
     <h2>Recently added books</h2>
+    
 
     {{#each books as |value key|}}
         <span>
-            <img src="/books/images/{{value._id}}" height="150" width="150" alt="book cover">
+            <a href="/books/show/{{value._id}}">
+                <img src="/books/images/{{value._id}}" height="150" width="150" alt="book cover">
+            </a>
             <h3>{{value.title}}</h3>
         </span>
     {{/each}}

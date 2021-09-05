@@ -20,7 +20,9 @@
         {{#if books}}
             {{#each books as |value key|}}
                 <span id="book-records">
+                    <a href="/books/show/{{value._id}}">
                     <img src="/books/images/{{value._id}}" height="150" width="150" alt="book cover">
+                    </a>
                     <h3>{{value.title}}</h3>
                 </span>
             {{/each}}

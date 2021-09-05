@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    {{>header}}
+    <div>
+        <h3>{{author.name}}</h3>
+        <a href="/authors/{{author._id}}/edit">Edit</a>
+        <form action="/authors/{{author._id}}?_method=DELETE" method="post">
+            <button type="submit">Delete</button>
+        </form>
+        </div>
+    <h2>Books by Author</h2>
+    <div id="booksby- author">
+        {{#if books}}
+            {{#each books as |value key|}}
+            <a href="/books/show/{{value._id}}">
+                <img src="/books/images/{{value._id}}" alt="book cover" width="250" height="250"> 
+            </a>
+            <h3>{{value.title}}</h3>
+            {{/each}}
+        {{else}}
+            <h3>no books found from this author</h3>
+        {{/if}}
+    </div>
+</body>
+</html>
