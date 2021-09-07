@@ -9,7 +9,6 @@ const bookRouter = new express.Router();
 bookRouter.get("/", async (req, res) => {
   try {
     let query = Book.find();
-    console.log(req.query);
     if (!(req.query.title == null)) {
       query = query.regex("title", new RegExp(req.query.title, "i"));
     }
