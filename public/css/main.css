@@ -2,7 +2,7 @@
 @import "/css/shared/header.css";
 
 :root {
-  font-family: cursive;
+  font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 20px;
   color: var(--color-text-light);
 }
