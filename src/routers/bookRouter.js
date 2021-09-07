@@ -8,7 +8,7 @@ const bookRouter = new express.Router();
 
 bookRouter.get("/", async (req, res) => {
   try {
-    let query = Book.find();
+    let query = Book.find().lean();
     if (!(req.query.title == null)) {
       query = query.regex("title", new RegExp(req.query.title, "i"));
     }
@@ -38,9 +38,11 @@ bookRouter.get("/", async (req, res) => {
 
 bookRouter.get("/:id/edit", async (req, res) => {
   try {
-    const book = await Book.findById(req.params.id).populate("author").exec();
-    const author = await Author.find({});
-
+    const book = await Book.findById(req.params.id)
+      .lean()
+      .populate("author")
+      .exec();
+    const author = await Author.find({}).lean();
     const publishDate = book.publishDate.toISOString().slice(0, 10);
 
     res.status(200).render("bookviews/edit", {
@@ -116,7 +118,7 @@ bookRouter.post(
 );
 
 bookRouter.get("/new", async (req, res) => {
-  const authors = await Author.find({});
+  const authors = await Author.find({}).lean();
   res.status(200).render("bookviews/new", {
     title: "New Book - Book-App",
     authors: authors,
@@ -125,7 +127,10 @@ bookRouter.get("/new", async (req, res) => {
 
 bookRouter.get("/show/:id", async (req, res) => {
   try {
-    const book = await Book.findById(req.params.id).populate("author").exec();
+    const book = await Book.findById(req.params.id)
+      .lean()
+      .populate("author")
+      .exec();
 
     res.render("bookviews/show", {
       title: "Details - Book-App",

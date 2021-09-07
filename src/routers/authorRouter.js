@@ -12,7 +12,7 @@ authorRouter.get("/", async (req, res) => {
       searchOptions.name = new RegExp(value, "i");
     }
 
-    const allAuthors = await Author.find(searchOptions);
+    const allAuthors = await Author.find(searchOptions).lean();
 
     res.status(200).render("authorviews/index", {
       title: "Authors Book-App",
@@ -30,8 +30,8 @@ authorRouter.get("/new", (req, res) => {
 
 authorRouter.get("/:id", async (req, res) => {
   try {
-    const author = await Author.findById(req.params.id);
-    const books = await Book.find({ author: req.params.id });
+    const author = await Author.findById(req.params.id).lean();
+    const books = await Book.find({ author: req.params.id }).lean();
 
     res.render("authorviews/show", {
       title: "Author - Book-App",
@@ -57,7 +57,7 @@ authorRouter.post("/new", async (req, res) => {
 
 authorRouter.get("/:id/edit", async (req, res) => {
   try {
-    const author = await Author.findById(req.params.id);
+    const author = await Author.findById(req.params.id).lean();
     res.render("authorviews/edit", {
       title: "Edit - Book-App",
       author: author,

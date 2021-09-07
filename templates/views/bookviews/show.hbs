@@ -1,29 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-</head>
 <body>
-    {{>header}}
-    <h2>{{book.title}}</h2>
-    <a href="/books/images/{{book._id}}">
-        <img src="/books/images/{{book._id}}" alt="Book cover image" width="250" height="250">
-    </a><br>
-    
-    <div>Author : {{book.author.name}}</div>
-    <div>Publish Date : {{book.publishDate}}</div>
-    <div>Page Count : {{book.pageCount}}</div>
-    <div>Description : {{book.description}}</div>  
+  <h2 class="page-header">{{book.title}}</h2>
+  <a href="/books/images/{{book._id}}">
+    <img
+      src="/books/images/{{book._id}}"
+      alt="Book cover image"
+      width="250"
+      height="250"
+    />
+  </a><br />
 
-    <a href="/books/{{book._id}}/edit">Edit</a>
-    <form action="/books/{{book._id}}?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-    </form>
-    <a href="/authors/{{book.author._id}}">view author</a>
+  <div>Author : {{book.author.name}}</div>
+  <div>Publish Date : {{book.publishDate}}</div>
+  <div>Page Count : {{book.pageCount}}</div>
+  <div>Description : {{book.description}}</div>
+
+  <a href="/books/{{book._id}}/edit">Edit</a>
+  <form action="/books/{{book._id}}?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+  <a href="/authors/{{book.author._id}}">view author</a>
 </body>
-</html>
-
-

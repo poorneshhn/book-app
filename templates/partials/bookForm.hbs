@@ -6,17 +6,13 @@
   <label for="author">Author</label>
   <select name="author" id="author" required>
     {{#if book.author.name}}
-      <option
-        label="{{book.author.name}}"
-        value="{{book.author._id}}"
-        selected
-      ></option>
+      <option value="{{book.author._id}}" selected>{{book.author.name}}</option>
     {{else}}
-      <option label="Select..."></option>
+      <option>Select...</option>
     {{/if}}
     {{#each authors as |value key|}}
 
-      <option label="{{value.name}}" value="{{value._id}}"></option>
+      <option value="{{value._id}}">{{value.name}}</option>
 
     {{/each}}
   </select>

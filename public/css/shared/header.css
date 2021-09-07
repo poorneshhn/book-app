@@ -1,6 +1,7 @@
 :root {
-  --nav-title-font-size: 3rem;
+  --nav-title-font-size: 4rem;
   --nav-title-font-weight: bold;
+  --nav-link-font-weight: 300;
 }
 
 .header-title {
@@ -31,5 +32,11 @@
 .header-nav li a {
   text-decoration: none;
   color: var(--color-text-light);
+  font-weight: var(--nav-link-font-weight);
   padding: 1rem;
+}
+
+.header-nav li a:hover,
+.header-title:hover {
+  color: white;
 }
