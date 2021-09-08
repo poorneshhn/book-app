@@ -25,7 +25,9 @@ authorRouter.get("/", async (req, res) => {
 });
 
 authorRouter.get("/new", (req, res) => {
-  res.render("authorviews/new");
+  res.render("authorviews/new", {
+    title: "New Author - Book-App",
+  });
 });
 
 authorRouter.get("/:id", async (req, res) => {
@@ -49,9 +51,7 @@ authorRouter.post("/new", async (req, res) => {
       name: req.body.name,
     });
     await author.save();
-    res.redirect("/authors", {
-      title: "New Author - Boop - App",
-    });
+    res.redirect("/authors");
   } catch (error) {
     res.send(error);
   }
