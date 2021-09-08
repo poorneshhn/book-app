@@ -1,0 +1,62 @@
+<body>
+  <div>
+    <label for="name">Title</label>
+    <input type="text" id="name" name="title" value="{{book.title}}" required />
+  </div>
+  <div>
+    <label for="author">Author</label>
+    <select name="author" id="author" required>
+      {{#if book.author.name}}
+        <option
+          value="{{book.author._id}}"
+          selected
+        >{{book.author.name}}</option>
+      {{else}}
+        <option>Select...</option>
+      {{/if}}
+      {{#each authors as |value key|}}
+
+        <option value="{{value._id}}">{{value.name}}</option>
+
+      {{/each}}
+    </select>
+  </div>
+  <div>
+    <label for="pageCount">Page Count</label>
+    <input
+      type="number"
+      id="pageCount"
+      name="pageCount"
+      min="1"
+      value="{{book.pageCount}}"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="coverImageTitle">Cover Image</label>
+    <input type="file" id="coverImageTitle" name="cover" />
+  </div>
+
+  <div>
+    <label for="date">Publish Date</label>
+    <input
+      type="date"
+      id="date"
+      class="date"
+      name="publishDate"
+      value="{{publishDate}}"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="description">Description</label>
+    <textarea
+      type="text"
+      id="description"
+      name="description"
+      required
+    >{{book.description}}</textarea>
+  </div>
+</body>

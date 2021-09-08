@@ -49,7 +49,9 @@ authorRouter.post("/new", async (req, res) => {
       name: req.body.name,
     });
     await author.save();
-    res.redirect("/authors");
+    res.redirect("/authors", {
+      title: "New Author - Boop - App",
+    });
   } catch (error) {
     res.send(error);
   }
