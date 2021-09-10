@@ -55,6 +55,22 @@ app.get("/", async (req, res) => {
   }
 });
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
+app.post("/login", (req, res) => {
+  res.redirect("login");
+});
+
+app.post("/register", (req, res) => {
+  res.redirect("register");
+});
+
 app.listen(port, () => {
   console.log("Server is up and running on port", port);
 });

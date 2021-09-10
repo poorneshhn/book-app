@@ -2,21 +2,21 @@
 <body>
     <h1>All Authors</h1>
 
-    <a href="/authors/new">Add new Author</a><br><br>
+    <a class="btn btn-primary" href="/authors/new">Add new Author</a><br><br>
 
     <form action="/authors" method="GET">
         {{>_formSearchAuthor}}
-        <button type="submit">Search</button>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 
     <div class="page-header" id="all-authors">
         {{#each authors as |value key|}}
             <div>{{value.name}}</div>
-            <a href="/authors/{{value._id}}">View</a>
-            <a href="/authors/{{value._id}}/edit">Edit</a>
+            <a class="btn btn-primary" href="/authors/{{value._id}}">View</a>
+            <a class="btn btn-primary" href="/authors/{{value._id}}/edit">Edit</a>
 
             <form action="/authors/{{value._id}}?_method=DELETE" method="post">
-                <button id="form-delete" type="submit">Delete</button>
+                <button class="btn btn-danger" id="form-delete" type="submit">Delete</button>
             </form>
         {{/each}}
     </div>

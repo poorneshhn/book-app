@@ -14,9 +14,9 @@
   <div>Page Count : {{book.pageCount}}</div>
   <div>Description : {{book.description}}</div>
 
-  <a href="/books/{{book._id}}/edit">Edit</a>
+  <a class="btn btn-primary" href="/books/{{book._id}}/edit">Edit</a>
   <form action="/books/{{book._id}}?_method=DELETE" method="POST">
-    <button type="submit">Delete</button>
+    <button class="btn btn-danger" type="submit">Delete</button>
   </form>
-  <a href="/authors/{{book.author._id}}">view author</a>
+  <a class="btn btn-primary" href="/authors/{{book.author._id}}">view author</a>
 </body>

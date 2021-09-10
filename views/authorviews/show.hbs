@@ -1,9 +1,9 @@
 <body>
   <div>
     <h3>{{author.name}}</h3>
-    <a href="/authors/{{author._id}}/edit">Edit</a>
+    <a class="btn btn-primary" href="/authors/{{author._id}}/edit">Edit</a>
     <form action="/authors/{{author._id}}?_method=DELETE" method="post">
-      <button type="submit">Delete</button>
+      <button class="btn btn-danger" type="submit">Delete</button>
     </form>
   </div>
   <h2 class="page-header">Books by Author</h2>

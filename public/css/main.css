@@ -1,5 +1,6 @@
 @import "/css/shared/variables.css";
 @import "/css/shared/header.css";
+@import "/css/shared/buttons.css";
 
 :root {
   font-family: Comic Sans MS;
